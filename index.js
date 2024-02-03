@@ -2,53 +2,37 @@
 const characters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9","~","`","!","@","#","$","%","^","&","*","(",")","_","-","+","=","{","[","}","]",",","|",":",";","<",">",".","?",
 "/"];
 
-// Creating empty arrays for new passwords
-let passwordOne = [];
-let passwordTwo = [];
+let passwordDisplayOne = document.getElementById('password-one');
+let passwordDisplayTwo = document.getElementById('password-two');
+let newPasswordOne = "";
+let newPasswordTwo = "";
 
-// Delcaring variables ready to use
-let passwordDisplayOne = document.getElementById("password-one");
-let passwordDisplayTwo = document.getElementById("password-two");
-let completePasswordOne = "";
-let completePasswordTwo = "";
-
-// Function to get a random character from the characters array and return it
-function getACharacter(){
+// Function to create a random character
+function getRandomCharacter(){
+    // Create a random number based off the length of the array
     let randomIndex = Math.floor(Math.random() * characters.length);
+    // Selecting random character based off the random index
     let randomCharacter = characters[randomIndex];
+    // Return the character to be used elsewhere
     return randomCharacter;
 }
 
-// Function to form password
-function formPassword(){
-    RefreshPassword();
-    // Loop through character array
+function getPassword(){
+    // Reset password to nothing when function is called
+    let newPasswordOne = "";
+    let newPasswordTwo = "";
+    // Loop through characters array to count
     for(let i = 0; i < characters.length; i++){
-        // If password isn't 15 items, push character
-        if(passwordOne.length != 15){
-            passwordOne.push(getACharacter());
-        }
-        // If password isn't 15 items, push character
-        if(passwordTwo.length != 15){
-            passwordTwo.push(getACharacter());
+        // If count is less than 15, execute instructions
+        if(i < 15){
+            // Add random character to string
+            newPasswordOne += getRandomCharacter();
+            newPasswordTwo += getRandomCharacter();
         }
     }
-    // Turn arrays into string
-    completePasswordOne = passwordOne.join("");
-    completePasswordTwo = passwordTwo.join("");
-}
-
-// Function to display passwords in the elements
-function getPassword(){
-    formPassword();
-    passwordDisplayOne.textContent = completePasswordOne;
-    passwordDisplayTwo.textContent = completePasswordTwo;
-}
-
-// Function to remove previous passwords
-function RefreshPassword(){
-    passwordOne = [];
-    passwordTwo = [];
+    // Render the passwords to the elements
+    passwordDisplayOne.textContent = newPasswordOne;
+    passwordDisplayTwo.textContent = newPasswordTwo;
 }
 
 
