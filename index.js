@@ -6,13 +6,31 @@ let passwordDisplayOne = document.getElementById('password-one');
 let passwordDisplayTwo = document.getElementById('password-two');
 let newPasswordOne = "";
 let newPasswordTwo = "";
+let symbolCheckbox = document.getElementById('symbol');
+let numberCheckbox = document.getElementById('number');
 
 // Function to create a random character
-function getRandomCharacter(){
+function getRandomCharacter() {
+    let randomIndex = 0;
+
     // Create a random number based off the length of the array
-    let randomIndex = Math.floor(Math.random() * characters.length);
-    // Selecting random character based off the random index
+    if (symbolCheckbox.checked && numberCheckbox.checked) {
+        // If both checkboxes are checked, include symbols and numbers
+        randomIndex = Math.floor(Math.random() * characters.length);
+    } else if (symbolCheckbox.checked) {
+        // If only the symbol checkbox is checked, include only symbols
+        randomIndex = Math.floor(Math.random() * (characters.length - 10)); // Exclude numbers
+    } else if (numberCheckbox.checked) {
+        // If only the number checkbox is checked, include only numbers
+        randomIndex = Math.floor(Math.random() * 62); // Include only numbers
+    } else {
+        // If neither checkbox is checked, include only alphabetical characters
+        randomIndex = Math.floor(Math.random() * 52); // Include only alphabetical characters
+    }
+
+    // Selecting a random character based on the random index
     let randomCharacter = characters[randomIndex];
+    
     // Return the character to be used elsewhere
     return randomCharacter;
 }
@@ -34,6 +52,8 @@ function getPassword(){
     passwordDisplayOne.textContent = newPasswordOne;
     passwordDisplayTwo.textContent = newPasswordTwo;
 }
+
+
 
 
  
