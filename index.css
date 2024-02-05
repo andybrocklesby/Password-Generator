@@ -1,27 +1,34 @@
-@font-face{
-    font-family: Karla;
-    src: url("./Karla-VariableFont_wght.ttf"); 
-}
-
 *{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+    transition: all 0.3s;
 }
 
-body {
+@font-face{
+    font-family: karla;
+    src: url("./Karla-VariableFont_wght.ttf");
+}
+
+.flex-row{
+    width:100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+body{
     width: 100%;
     height: 100vh;
-    background: #1C1C1C;
     display: grid;
     place-items: center;
+    background: #e9edc9; 
 }
 
-#password-wrapper{
+.app-wrapper{
     width: 550px;
     height: 550px;
-    background: #1F2937;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background: #fefae0;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -29,61 +36,93 @@ body {
     padding: 50px;
 }
 
-h1{
-    font-family: Karla;
-    font-size: 40px;
-    font-weight: 800;
-    color: white;
-    margin-bottom: 10px;
-}
-
-h1>span{
-    display: block;
-    color: #34D399;
-}
-
-p{
-    color: #D5D4D8;
-    margin-bottom: 50px;
-}
-
-#generate-btn{
-    padding: 10px 15px;
-    border-radius: 6px;
+.toggle-btn{
+    padding: 5px;
+    background: #e9edc9;
     border: none;
-    background: #10B981;
-    color: #FFFFFF;
+    border-radius: 3px;
     cursor: pointer;
-    margin-bottom: 35px;
     transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-#generate-btn:hover{
-    scale: 1.05;
+.toggle-btn:hover{
+    scale: 1.1;
 }
 
-hr{
+.title, .title-span{
+    font-size: 40px;
+    font-family: karla;
+    font-weight: 800;
+    color: #606c38;
+}
+
+.title-span{
+    display: block;
+    color: #d4a373;
+}
+
+.subtitle{
+    font-size: 20px;
+    font-weight: normal;
+    color: #606c38;
+    margin-bottom: 50px;
+}
+
+.generation-section{
     width: 100%;
-    border: 1px solid #2F3E53;
-    margin-bottom: 35px;
-}
-
-#output-section{
-    width:100%;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    align-self: center;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 10px;
 }
 
-.display-btn{
-    width: 215px;
-    height: 40px;
-    background: #273549;
+.input-label{
+    font-size: 16px;
+}
+
+.length-input{
+    width: 80px;
+    background: white;
+    border: 1px solid black;
+    border-radius: 3px;
+    text-align: center;
+}
+
+.generate-btn{
+    background: #d4a373;
+    padding: 10px 15px;
+    font-size: 16px;
     border: none;
     border-radius: 6px;
+    color: #fefae0;
+    transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     cursor: pointer;
-    color: #10B981;
-    font-weight: bold;
     margin-bottom: 35px;
+}
+
+.generate-btn:hover{
+    scale: 1.1;
+}
+
+.app-divider{
+    width: 100%;
+    border: 1px solid #e9edc9;
+    margin-bottom: 35px;
+}
+
+.output-display{
+    width: 210px;
+    height: 40px;
+    background: #faedcd;
+    border-radius: 6px;
+    color: #606c38;
+    font-weight: 800;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    margin-bottom: 35px;
+}
+
+.error-display{
+    color: #ff968f;
 }

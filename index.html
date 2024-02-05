@@ -1,18 +1,31 @@
-<html>
-    <head><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
-        <link rel="stylesheet" href="index.css">
-    </head>
-    <body>
-        <div id="password-wrapper">
-            <h1>Generate a<span>random password</h1>
-            <p>Never generate an insecure password again.</p>
-            <button id="generate-btn" onclick="getPassword()">Generate Passwords</button>
-            <hr>
-            <div id="output-section">
-                <button class="display-btn" id="password-one"></button>
-                <button class="display-btn" id="password-two"></button>
-            </div>
-        </div>
-        <script src="index.js"></script>
-    </body>
+<!DOCTYPE html>
+<html lang="en">
+  <head><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Andy Brocklesby | Password Generator</title>
+    <link rel="stylesheet" href="index.css">
+  </head>
+  <body id="body">
+      <main class="app-wrapper" id="app-bg">
+          <button class="toggle-btn" onclick="toggleAppearance()" id="toggle-btn">🌙</button>
+          <h1 class="title" id="title">Generate a <span class="title-span" id="title-span">random password</span></h1>
+          <h2 class="subtitle" id="subtitle">Never use an insecure password again.</h2>
+          <div class="generation-section">
+              <label for="password-length" id="input-label" class="input-label">Password Length: </label>
+            <input type="number" maxlength="2" size="3" name="password-length" id="length-input" class="length-input" placeholder="20 max">
+            <button class="generate-btn" onclick="getPassword()" id="generate-btn">Generate Passwords</button>
+          </div>
+          <hr class="app-divider">
+          <div class="flex-row">
+            <div class="output-display clickable" id="display-one"></div>
+            <div class="output-display clickable" id="display-two"></div>
+          </div>
+          <div class="error-display" id="error-display">
+              
+          </div>
+      </main>
+	<script src="index.js"></script>
+  </body>
 </html>
