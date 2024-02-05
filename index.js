@@ -11,7 +11,6 @@ let userInput = document.getElementById('length-input');
 // [x] Dark/light mode
 
 function getRandomCharacter(){
-    const validCharacters = includeNumbers && includeSymbols ? characters : includeNumbers ? characters.slice(0, characters.length - 28) : includeSymbols ? characters.slice(characters.length - 28) : [];
     let randomIndex = Math.floor(Math.random() * characters.length);
     return characters[randomIndex];
 }
@@ -92,18 +91,18 @@ function produceError(){
     }
 }
 
-function copyTextContent(event) {
-    const textToCopy = event.target.textContent;
-    const textarea = document.createElement('textarea');
-    textarea.value = textToCopy;
-    document.body.appendChild(textarea);
-    textarea.select();
-    document.execCommand('copy');
-    document.body.removeChild(textarea);
-    alert('Text copied to clipboard: ' + textToCopy);
-}
+    function copyTextContent(event) {
+      const textToCopy = event.target.textContent;
+      const textarea = document.createElement('textarea');
+      textarea.value = textToCopy;
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textarea);
+      alert('Text copied to clipboard: ' + textToCopy);
+    }
 
-const clickableElements = document.querySelectorAll('.clickable');
+    const clickableElements = document.querySelectorAll('.clickable');
     clickableElements.forEach(element => {
-    element.addEventListener('click', copyTextContent);
+      element.addEventListener('click', copyTextContent);
     });
